@@ -32,7 +32,7 @@
         <div class="modal-content">
             <div class="row">
                 <div class="col-md-7  center-container">
-                    <h3>Name your device and download the agent from following link.</h3>
+                    <h3>Enter details of the water tank and download agent from the following link.</h3>
                     <br/>
                     <form id="downloadForm" method="GET"
                           action="{{@app.context}}/api/devices/sketch/download">
@@ -42,15 +42,21 @@
                         </div>
                         <div class="control-group">
                             <div class="controls">
-                                <input class="new-device-name" style="color:#3f3f3f;padding:5px"
+                                Tank name <br/>
+                                <input class="new-tank-name" style="color:#3f3f3f;padding:5px"
                                        type="text"
-                                       placeholder="Ex. Lobby_Device"
-                                       name="deviceName" size="60" required>
+                                       name="tankname" size="60" required>
                                 <br/>
-                                <input type="hidden" class="deviceType" name="deviceType"
-                                       value="watertank"/>
-                                <input type="hidden" class="sketchType" name="sketchType"
-                                       value="watertank"/>
+                                <br/>Latitude<br/>
+                                <input class="latitude" style="color:#3f3f3f;padding:5px"
+                                       type="text"
+                                       name="latitude" size="60" required>
+                                <br/>
+                                <br/>Longitude<br/>
+                                <input class="longitude" style="color:#3f3f3f;padding:5px"
+                                       type="text"
+                                       name="longitude" size="60" required>
+                                <br/>
                             </div>
                         </div>
                         <div class="buttons" style="padding-bottom: 0px">

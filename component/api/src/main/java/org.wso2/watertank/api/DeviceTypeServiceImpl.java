@@ -206,19 +206,18 @@ public class DeviceTypeServiceImpl implements DeviceTypeService {
         return Response.status(Response.Status.BAD_REQUEST).build();
     }
 
-    /**
-     * To download device type agent source code as zip file
-     * @param deviceName   name for the device type instance
-     * @param sketchType   folder name where device type agent was installed into server
-     * @return  Agent source code as zip file
-     */
-    @Path("/device/download")
+    @Path("/device/register/tank")
     @GET
     @Produces("application/zip")
-    public Response downloadSketch(@QueryParam("deviceName") String deviceName,
-                                   @QueryParam("sketchType") String sketchType) {
+    @Override
+    public Response registerTank(@QueryParam("tankname") String tankname, @QueryParam("latitude") String latitude,
+                                 @QueryParam("longitude") String longitude) {
+
+        //TODO: Send tank details to api endpoint
+
+
         try {
-            ZipArchive zipFile = createDownloadFile(APIUtil.getAuthenticatedUser(), deviceName, sketchType);
+            ZipArchive zipFile = createDownloadFile(APIUtil.getAuthenticatedUser(), tankname, "watertank");
             Response.ResponseBuilder response = Response.ok(FileUtils.readFileToByteArray(zipFile.getZipFile()));
             response.status(Response.Status.OK);
             response.type("application/zip");

@@ -123,14 +123,27 @@ public interface DeviceTypeService {
     )
     Response getSensorStats(@PathParam("deviceId") String deviceId, @QueryParam("from") long from,
                             @QueryParam("to") long to, @QueryParam("sensorType") String sensorType);
+
+
+
+
+
+
+
+
+
+
+
     /**
      * To download device type agent source code as zip file
-     * @param deviceName   name for the device type instance
-     * @param sketchType   folder name where device type agent was installed into server
+     * @param tankname   name of the tank
+     * @param latitude   GPS latitude position of the tank
+     * @param longitude   GPS longitude position of the tank
      * @return  Agent source code as zip file
      */
-    @Path("/device/download")
+    @Path("/device/register/tank")
     @GET
     @Produces("application/zip")
-    Response downloadSketch(@QueryParam("deviceName") String deviceName, @QueryParam("sketchType") String sketchType);
+    Response registerTank(@QueryParam("tankname") String tankname, @QueryParam("latitude") String latitude,
+                          @QueryParam("longitude") String longitude);
 }

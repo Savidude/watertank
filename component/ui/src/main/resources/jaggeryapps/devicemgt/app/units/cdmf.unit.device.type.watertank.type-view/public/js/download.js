@@ -77,28 +77,31 @@ function attachEvents() {
 }
 
 function downloadAgent() {
-	var deviceName;
-	$('.new-device-name').each(function () {
-		if (this.value != "") {
-			deviceName = this.value;
-		}
-	});
-	var deviceNameFormat = /^[^~?!#$:;%^*`+={}\[\]\\()|<>,'"]{1,30}$/;
-	if (deviceName && deviceName.length < 4) {
-		$("#invalid-username-error-msg span").text("Device name should be more than 3 letters!");
-		$("#invalid-username-error-msg").removeClass("hidden");
-	} else if (deviceName && deviceNameFormat.test(deviceName)) {
-		$('#downloadForm').submit();
-		hidePopup();
-		$(modalPopupContent).html($('#device-agent-downloading-content').html());
-		showPopup();
-		setTimeout(function () {
-			hidePopup();
-		}, 1000);
-	}else {
-		$("#invalid-username-error-msg span").text("Invalid device name");
-		$("#invalid-username-error-msg").removeClass("hidden");
-	}
+    var $inputs = $('#downloadForm :input');
+
+    var values = {};
+    $inputs.each(function () {
+        values[this.name] = $(this).val();
+    });
+
+    var payload = {};
+    payload.tankname = $inputs[0].value;
+    payload.latitude = $inputs[1].value;
+    payload.longitude = $inputs[2].value;
+
+    var tankRegisterUrl = "/watertank/device/register?tankname=" + encodeURI(payload.tankname) + "&latitude=" +
+        encodeURI(payload.latitude) + "&longitude=" + encodeURI(payload.longitude);
+
+    invokerUtil.post(
+        tankRegisterUrl,
+        payload,
+        function (data, textStatus, jqxhr) {
+            hidePopup();
+        },
+        function (data) {
+            hidePopup();
+        }
+    )
 }
 
 function doAction(data) {
