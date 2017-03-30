@@ -142,7 +142,7 @@ public interface DeviceTypeService {
      * @return  Agent source code as zip file
      */
     @Path("/device/register/tank")
-    @GET
+    @POST
     @Produces("application/zip")
     Response registerTank(@QueryParam("tankname") String tankname, @QueryParam("latitude") String latitude,
                           @QueryParam("longitude") String longitude);

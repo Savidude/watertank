@@ -207,7 +207,7 @@ public class DeviceTypeServiceImpl implements DeviceTypeService {
     }
 
     @Path("/device/register/tank")
-    @GET
+    @POST
     @Produces("application/zip")
     @Override
     public Response registerTank(@QueryParam("tankname") String tankname, @QueryParam("latitude") String latitude,

@@ -83,4 +83,6 @@
         <method>GET</method>
         <scope>watertank_device</scope>
     </Permission>
+
+
 </PermissionConfiguration>
