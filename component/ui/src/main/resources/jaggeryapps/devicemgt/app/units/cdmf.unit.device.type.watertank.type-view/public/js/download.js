@@ -89,7 +89,7 @@ function downloadAgent() {
     payload.latitude = $inputs[1].value;
     payload.longitude = $inputs[2].value;
 
-    var tankRegisterUrl = "/watertank/device/register?tankname=" + encodeURI(payload.tankname) + "&latitude=" +
+    var tankRegisterUrl = "/watertank/device/register/tank?tankname=" + encodeURI(payload.tankname) + "&latitude=" +
         encodeURI(payload.latitude) + "&longitude=" + encodeURI(payload.longitude);
 
     invokerUtil.post(
