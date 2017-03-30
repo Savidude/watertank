@@ -1,0 +1,11 @@
+
+{
+  "deviceType": {
+    "label": "watertank",
+    "category": "virtual",
+    "downloadAgentUri": "watertank/device/download",
+    "scopes" : [
+      "perm:watertank:enroll"
+    ]
+  }
+}
