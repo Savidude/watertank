@@ -22,7 +22,9 @@
         <dependency artifact="watertank_stream" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="watertank_receiver" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="watertank_execution" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
-        <dependency artifact="waterlevel_publisher" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependencyv artifact="waterlevel_publisher" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
         <dependency artifact="waterlevel_stream" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="waterlevel_script" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
+        <dependency artifact="waterlevel_store" version="1.0.0" include="true" serverRole="DataAnalyticsServer"/>
     </artifact>
 </artifacts>
